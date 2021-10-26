@@ -4,8 +4,15 @@
 
 {% block content %}
     <div class="container">
-        <h1>Bienvenue {{app.user.firstname}} sur votre espace personnel</h1>
+        <div class="alert alert-success">
+            {% for message in app.flashes('mdpModifie') %}
+                {{message}}
+            {% endfor %}
+        </div>
 
+        <h1>Bienvenue {{app.user.firstname}} sur votre espace personnel</h1>
+        <hr>
+        <a href=" {{path('account_password')}} "> modifier mon mot de passe </a>
     </div>
 
 {% endblock %}
