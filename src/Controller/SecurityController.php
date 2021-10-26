@@ -10,13 +10,15 @@ use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 class SecurityController extends AbstractController
 {
     /**
-     * @Route("/login", name="app_login")
+     * @Route("/connexion", name="app_login")
      */
     public function login(AuthenticationUtils $authenticationUtils): Response
     {
-        // if ($this->getUser()) {
-        //     return $this->redirectToRoute('target_path');
-        // }
+        //si un user est conncté et il essaye d'aller sur la page connexion, 
+        //il sera redirigé vers la page account
+        if ($this->getUser()) {
+            return $this->redirectToRoute('account');
+        }
 
         // get the login error if there is one
         $error = $authenticationUtils->getLastAuthenticationError();
@@ -27,7 +29,7 @@ class SecurityController extends AbstractController
     }
 
     /**
-     * @Route("/logout", name="app_logout")
+     * @Route("/deconnexion", name="app_logout")
      */
     public function logout(): void
     {

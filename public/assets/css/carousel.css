@@ -33,7 +33,9 @@ body {
     min-width: 100%;
     height: 32rem;
 }
-
+a {
+    color: #fff;
+}
 
 /* MARKETING CONTENT
 -------------------------------------------------- */
