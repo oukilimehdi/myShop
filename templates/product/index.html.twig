@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}nos-produits - my shop{% endblock %}
+
+{% block content %}
+
+    <h1>Nos produits</h1>
+    <div style="margin-bottom: 150px" class="row">
+            {% for product in products %}
+                <div class="col-md-4">
+                    <div class="product-item text-center">
+                        <a href=" {{path('product',{ slug:product.slug} )}}"> <img src=" {{vich_uploader_asset(product, 'imageFile')}} " class="img-fluid" width="300" height="300" alt=" {{product.name}} "></a> 
+                        <h5> {{product.name}} </h5> 
+                        <span class="product-subtitle"> {{product.subtitle|raw}} </span>
+                        <span class="product-price"> {{(product.price/100)|number_format(2, ',', '.') }} € </span>
+                    </div>
+                </div>    
+            {% endfor %}
+       
+    </div>
+
+{% endblock %}

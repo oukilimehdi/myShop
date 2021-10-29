@@ -30,9 +30,11 @@ class ProductCrudController extends AbstractCrudController
             TextEditorField::new('subtitle'),
             TextareaField::new('description'),
             MoneyField::new('price')->setCurrency('EUR'),
-            TextField::new('imageFile')->setFormType(VichImageType::class)->onlyWhenCreating(),
+            TextField::new('imageFile')->setFormType(VichImageType::class),//->onlyWhenCreating(),
             ImageField::new('illustration')->setBasePath('/uploads/images/')->onlyOnIndex(),
         ];
     }
     
 }
+
+
