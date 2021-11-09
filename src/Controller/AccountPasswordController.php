@@ -32,7 +32,6 @@ class AccountPasswordController extends AbstractController
                 $em = $this->getDoctrine()->getManager();
                 $em->flush();
 
-
                 $this->addFlash('mdpModifie', 'votre mot de passe a bien été modifié');
                 return $this->redirectToRoute('account');
 
