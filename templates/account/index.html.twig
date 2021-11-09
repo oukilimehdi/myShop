@@ -13,7 +13,8 @@
 
         <h1>Bienvenue {{app.user.firstname}} sur votre espace personnel</h1>
         <hr>
-        <a href=" {{path('account_password')}} "> modifier mon mot de passe </a>
+        <a class="btn btn-primary" href=" {{path('account_password')}} "> modifier mon mot de passe </a>
+        <a class="btn btn-primary" href=" {{path('account_address')}} "> Gérer mes adresses</a>
     </div>
 
 {% endblock %}
