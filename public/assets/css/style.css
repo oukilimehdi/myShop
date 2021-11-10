@@ -41,3 +41,17 @@ nav a, nav {
 .single-price{
     font-size: 19px;
 }
+/* pour les checkbox de la page commande */
+.form-check{
+    background-color: #f4f8ff;
+    padding: 20px 65px;
+    margin-top: 8px;
+}
+.col-form-label{
+    font-weight: bold;
+}
+.order-summary{
+    background-color: #f4f8ff;
+    padding: 20px;
+    margin-top: 22px;
+}

@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Valider ma commande - myShop{% endblock %}
+
+{% block content %}
+
+    <h2>je passe ma commande</h2>
+    <p>Choisissez vos préférences avant de passer votre commande</p>
+
+    <div class="row">
+        <div class="col-md-6">
+            <!-- pour remplacer [br] par <br> -->
+            {% set formHtml %}
+                {{form(form)}}
+            {% endset %}
+            {{formHtml|replace({'[br]' : '<br>'})|raw}}
+        </div>
+        <div class="col-md-6">
+            <div class="text-center">
+                <b>récapitulatif de la commande</b>
+            </div>
+            <div class="order-summary">
+                <!-- si key >0, veut dire on est a l'article numero 2, alors tu met le mt-2 -->
+                {% for key, product in cart %}
+                <div class="row {% if key > 0 %} mt-2 {% endif %}">
+                    <div class="col-3">
+                        <img src=" {{vich_uploader_asset(product.product, 'imageFile')}} " class="img-fluid" width="75" height="75" alt=" {{product.product.name}} ">
+                    </div>
+                    <div class="col-7 my-auto">
+                        {{product.product.name}} <br>
+                        <small> {{product.product.subtitle|raw}} </small>
+                    </div>
+                    <div class="col-2 my-auto">
+                        x{{product.quantity}}
+
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}
